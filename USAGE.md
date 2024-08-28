@@ -7,13 +7,13 @@ import (
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/components"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"

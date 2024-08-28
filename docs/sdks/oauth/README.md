@@ -4,8 +4,8 @@
 ## Overview
 
 Use the OAuth API to enable your ecommerce server to make API calls on behalf of a Bolt logged-in shopper.
-
 <https://help.bolt.com/products/accounts/direct-api/oauth-guide/>
+
 ### Available Operations
 
 * [GetToken](#gettoken) - Get OAuth token
@@ -64,10 +64,12 @@ func main() {
 | `tokenRequest`                                                                                                                                                                                                      | [components.TokenRequest](../../models/components/tokenrequest.md)                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |
 | `opts`                                                                                                                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                  | The options for this request.                                                                                                                                                                                       |
 
-
 ### Response
 
 **[*operations.OauthGetTokenResponse](../../models/operations/oauthgettokenresponse.md), error**
+
+### Errors
+
 | Error Object                        | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | sdkerrors.OauthGetTokenResponseBody | 4XX                                 | application/json                    |

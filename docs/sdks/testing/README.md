@@ -23,7 +23,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"github.com/BoltApp/bolt-go/models/components"
 	"context"
 	"log"
@@ -32,7 +31,7 @@ import(
 func main() {
     s := boltgo.New()
     security := operations.TestingAccountCreateSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
 
     var xPublishableKey string = "<value>"
@@ -65,14 +64,17 @@ func main() {
 | `accountTestCreationData`                                                                          | [components.AccountTestCreationData](../../models/components/accounttestcreationdata.md)           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `opts`                                                                                             | [][operations.Option](../../models/operations/option.md)                                           | :heavy_minus_sign:                                                                                 | The options for this request.                                                                      |
 
-
 ### Response
 
 **[*operations.TestingAccountCreateResponse](../../models/operations/testingaccountcreateresponse.md), error**
+
+### Errors
+
 | Error Object                               | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | sdkerrors.TestingAccountCreateResponseBody | 4XX                                        | application/json                           |
 | sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
+
 
 ## TestingAccountPhoneGet
 
@@ -86,7 +88,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"context"
 	"log"
 )
@@ -94,7 +95,7 @@ import(
 func main() {
     s := boltgo.New()
     security := operations.TestingAccountPhoneGetSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
 
     var xPublishableKey string = "<value>"
@@ -118,14 +119,17 @@ func main() {
 | `xPublishableKey`                                                                                      | *string*                                                                                               | :heavy_check_mark:                                                                                     | The publicly shareable identifier used to identify your Bolt merchant division.                        |
 | `opts`                                                                                                 | [][operations.Option](../../models/operations/option.md)                                               | :heavy_minus_sign:                                                                                     | The options for this request.                                                                          |
 
-
 ### Response
 
 **[*operations.TestingAccountPhoneGetResponse](../../models/operations/testingaccountphonegetresponse.md), error**
+
+### Errors
+
 | Error Object                                 | Status Code                                  | Content Type                                 |
 | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
 | sdkerrors.TestingAccountPhoneGetResponseBody | 4XX                                          | application/json                             |
 | sdkerrors.SDKError                           | 4xx-5xx                                      | */*                                          |
+
 
 ## GetCreditCard
 
@@ -139,7 +143,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"context"
 	"log"
 )
@@ -151,7 +154,7 @@ func main() {
     }
 
     security := operations.TestingCreditCardGetSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
     ctx := context.Background()
     res, err := s.Testing.GetCreditCard(ctx, request, security)
@@ -173,10 +176,12 @@ func main() {
 | `security`                                                                                               | [operations.TestingCreditCardGetSecurity](../../models/operations/testingcreditcardgetsecurity.md)       | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
 | `opts`                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                 | :heavy_minus_sign:                                                                                       | The options for this request.                                                                            |
 
-
 ### Response
 
 **[*operations.TestingCreditCardGetResponse](../../models/operations/testingcreditcardgetresponse.md), error**
+
+### Errors
+
 | Error Object                               | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | sdkerrors.TestingCreditCardGetResponseBody | 4XX                                        | application/json                           |

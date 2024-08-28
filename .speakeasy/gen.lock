@@ -1,10 +1,10 @@
 lockVersion: 2.0.0
 id: 269b4377-e36b-42c4-9e18-aa74d5f13d72
 management:
-  docChecksum: 6f643f3ad4bcf7e18d91d410f30ec9ee
+  docChecksum: d132633edd6474d4d751813ac7eefe1b
   docVersion: 3.2.0
-  speakeasyVersion: 1.344.0
-  generationVersion: 2.376.0
+  speakeasyVersion: internal
+  generationVersion: 2.404.10
   releaseVersion: 1.3.0
   configChecksum: f8d1d5ff41908887566d0a9f7a3ecffe
   repoURL: https://github.com/BoltApp/bolt-go.git
@@ -14,12 +14,12 @@ management:
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.0
+    core: 3.5.5
     defaultEnabledRetries: 0.2.0
-    envVarSecurityUsage: 0.2.0
+    envVarSecurityUsage: 0.3.1
     errorUnions: 0.1.0
     flattening: 2.81.1
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.10
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     groups: 2.81.2
@@ -31,7 +31,7 @@ features:
     responseFormat: 0.1.2
     retries: 2.83.0
     sdkHooks: 0.1.0
-    unions: 2.85.8
+    unions: 2.85.9
 generatedFiles:
   - account.go
   - loggedin.go
@@ -203,19 +203,8 @@ generatedFiles:
   - docs/models/components/genericerror.md
   - docs/models/components/fielderrortag.md
   - docs/models/components/fielderror.md
-  - docs/models/components/addresslistinginput.md
   - docs/models/components/creditcarderrortag.md
   - docs/models/components/creditcarderror.md
-  - docs/models/components/paymentmethodinput.md
-  - docs/models/components/paymentmethodcreditcardinput.md
-  - docs/models/components/addressreferenceinput.md
-  - docs/models/components/addressreferenceexplicitinput.md
-  - docs/models/components/paymentmethodpaypal.md
-  - docs/models/components/paymentmethodaffirm.md
-  - docs/models/components/paymentmethodafterpay.md
-  - docs/models/components/paymentmethodklarna.md
-  - docs/models/components/paymentmethodklarnaaccount.md
-  - docs/models/components/paymentmethodklarnapaynow.md
   - docs/models/components/paymentresponse.md
   - docs/models/components/paymentresponsefinalizedtag.md
   - docs/models/components/status.md
@@ -254,7 +243,6 @@ generatedFiles:
   - docs/models/components/emailstate.md
   - docs/models/components/phonestate.md
   - docs/models/components/accounttestcreationdataoutput.md
-  - docs/models/components/accounttestcreationdata.md
   - docs/models/components/accounttestphonedata.md
   - docs/models/components/testcreditcard.md
   - docs/models/components/security.md

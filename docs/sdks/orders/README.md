@@ -21,7 +21,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"github.com/BoltApp/bolt-go/models/components"
 	"context"
 	"log"
@@ -30,7 +29,7 @@ import(
 func main() {
     s := boltgo.New()
     security := operations.OrdersCreateSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
 
     var xPublishableKey string = "<value>"
@@ -50,10 +49,20 @@ func main() {
             DisplayID: boltgo.String("20240116-878"),
             Shipments: []components.CartShipment{
                 components.CartShipment{
-                    Address: components.CreateAddressReferenceInputAddressReferenceID(
-                            components.AddressReferenceID{
-                                DotTag: components.AddressReferenceIDTagID,
-                                ID: "D4g3h5tBuVYK9",
+                    Address: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+                            components.AddressReferenceExplicitInput{
+                                DotTag: components.AddressReferenceExplicitTagExplicit,
+                                FirstName: "Charlie",
+                                LastName: "Dunn",
+                                Company: boltgo.String("ACME Corporation"),
+                                StreetAddress1: "535 Mission St",
+                                StreetAddress2: boltgo.String("c/o Shipping Department"),
+                                Locality: "San Francisco",
+                                PostalCode: "94105",
+                                Region: boltgo.String("CA"),
+                                CountryCode: components.CountryCodeUs,
+                                Email: boltgo.String("alice@example.com"),
+                                Phone: boltgo.String("+14155550199"),
                             },
                     ),
                     Cost: &components.Amount{
@@ -119,10 +128,12 @@ func main() {
 | `order`                                                                                                                                                                                                             | [components.Order](../../models/components/order.md)                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |
 | `opts`                                                                                                                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                  | The options for this request.                                                                                                                                                                                       |
 
-
 ### Response
 
 **[*operations.OrdersCreateResponse](../../models/operations/orderscreateresponse.md), error**
+
+### Errors
+
 | Error Object                       | Status Code                        | Content Type                       |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | sdkerrors.OrdersCreateResponseBody | 4XX                                | application/json                   |

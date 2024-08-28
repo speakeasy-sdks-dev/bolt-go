@@ -1,4 +1,4 @@
-speakeasyVersion: 1.344.0
+speakeasyVersion: internal
 sources:
     bolt-go-api:
         sourceNamespace: bolt-go-api
@@ -13,7 +13,7 @@ targets:
         sourceNamespace: bolt-go-api
         sourceRevisionDigest: sha256:e87b3c256e2bf4d21cbb1b15a4df6c7ddc3a3ab8cdaca52006965551af097487
         sourceBlobDigest: sha256:271b8f20e742e4c43c8810574c15c809273c7432e989beb674df44482bedfab4
-        outLocation: /github/workspace/repo
+        outLocation: /tmp/snapshot-test/7b97ac9456d898de
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

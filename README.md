@@ -27,13 +27,13 @@ import (
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/components"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -112,13 +112,13 @@ import (
 	"github.com/BoltApp/bolt-go/models/components"
 	"github.com/BoltApp/bolt-go/models/sdkerrors"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -166,14 +166,14 @@ import (
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/components"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithServerIndex(0),
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -207,14 +207,14 @@ import (
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/components"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithServerURL("https://{environment}.bolt.com/v3"),
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -283,13 +283,13 @@ import (
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/components"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -319,13 +319,12 @@ import (
 	"github.com/BoltApp/bolt-go/models/components"
 	"github.com/BoltApp/bolt-go/models/operations"
 	"log"
-	"os"
 )
 
 func main() {
 	s := boltgo.New()
 	security := operations.GuestPaymentsInitializeSecurity{
-		APIKey: os.Getenv("API_KEY"),
+		APIKey: "<YOUR_API_KEY_HERE>",
 	}
 
 	var xPublishableKey string = "<value>"
@@ -346,10 +345,20 @@ func main() {
 			DisplayID:        boltgo.String("215614191"),
 			Shipments: []components.CartShipment{
 				components.CartShipment{
-					Address: components.CreateAddressReferenceInputAddressReferenceID(
-						components.AddressReferenceID{
-							DotTag: components.AddressReferenceIDTagID,
-							ID:     "D4g3h5tBuVYK9",
+					Address: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+						components.AddressReferenceExplicitInput{
+							DotTag:         components.AddressReferenceExplicitTagExplicit,
+							FirstName:      "Alice",
+							LastName:       "Baker",
+							Company:        boltgo.String("ACME Corporation"),
+							StreetAddress1: "535 Mission St, Ste 1401",
+							StreetAddress2: boltgo.String("c/o Shipping Department"),
+							Locality:       "San Francisco",
+							PostalCode:     "94105",
+							Region:         boltgo.String("CA"),
+							CountryCode:    components.CountryCodeUs,
+							Email:          boltgo.String("alice@example.com"),
+							Phone:          boltgo.String("+14155550199"),
 						},
 					),
 					Cost: &components.Amount{
@@ -395,10 +404,20 @@ func main() {
 		PaymentMethod: components.CreatePaymentMethodInputPaymentMethodCreditCardInput(
 			components.PaymentMethodCreditCardInput{
 				DotTag: components.DotTagCreditCard,
-				BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
-					components.AddressReferenceID{
-						DotTag: components.AddressReferenceIDTagID,
-						ID:     "D4g3h5tBuVYK9",
+				BillingAddress: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+					components.AddressReferenceExplicitInput{
+						DotTag:         components.AddressReferenceExplicitTagExplicit,
+						FirstName:      "Alice",
+						LastName:       "Baker",
+						Company:        boltgo.String("ACME Corporation"),
+						StreetAddress1: "535 Mission St, Ste 1401",
+						StreetAddress2: boltgo.String("c/o Shipping Department"),
+						Locality:       "San Francisco",
+						PostalCode:     "94105",
+						Region:         boltgo.String("CA"),
+						CountryCode:    components.CountryCodeUs,
+						Email:          boltgo.String("alice@example.com"),
+						Phone:          boltgo.String("+14155550199"),
 					},
 				),
 				Network:    components.CreditCardNetworkVisa,
@@ -444,13 +463,13 @@ import (
 	"github.com/BoltApp/bolt-go/retry"
 	"log"
 	"models/operations"
-	"os"
 )
 
 func main() {
 	s := boltgo.New(
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"
@@ -488,7 +507,6 @@ import (
 	"github.com/BoltApp/bolt-go/models/components"
 	"github.com/BoltApp/bolt-go/retry"
 	"log"
-	"os"
 )
 
 func main() {
@@ -505,7 +523,8 @@ func main() {
 				RetryConnectionErrors: false,
 			}),
 		boltgo.WithSecurity(components.Security{
-			Oauth: boltgo.String(os.Getenv("OAUTH")),
+			Oauth:  boltgo.String("<YOUR_OAUTH_HERE>"),
+			APIKey: boltgo.String("<YOUR_API_KEY_HERE>"),
 		}),
 	)
 	var xPublishableKey string = "<value>"

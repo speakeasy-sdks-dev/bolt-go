@@ -1,6 +1,8 @@
 # Guest
 (*Payments.Guest*)
 
+## Overview
+
 ### Available Operations
 
 * [Initialize](#initialize) - Initialize a Bolt payment for guest shoppers
@@ -18,7 +20,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"github.com/BoltApp/bolt-go/models/components"
 	"context"
 	"log"
@@ -27,7 +28,7 @@ import(
 func main() {
     s := boltgo.New()
     security := operations.GuestPaymentsInitializeSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
 
     var xPublishableKey string = "<value>"
@@ -48,10 +49,20 @@ func main() {
             DisplayID: boltgo.String("215614191"),
             Shipments: []components.CartShipment{
                 components.CartShipment{
-                    Address: components.CreateAddressReferenceInputAddressReferenceID(
-                            components.AddressReferenceID{
-                                DotTag: components.AddressReferenceIDTagID,
-                                ID: "D4g3h5tBuVYK9",
+                    Address: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+                            components.AddressReferenceExplicitInput{
+                                DotTag: components.AddressReferenceExplicitTagExplicit,
+                                FirstName: "Alice",
+                                LastName: "Baker",
+                                Company: boltgo.String("ACME Corporation"),
+                                StreetAddress1: "535 Mission St, Ste 1401",
+                                StreetAddress2: boltgo.String("c/o Shipping Department"),
+                                Locality: "San Francisco",
+                                PostalCode: "94105",
+                                Region: boltgo.String("CA"),
+                                CountryCode: components.CountryCodeUs,
+                                Email: boltgo.String("alice@example.com"),
+                                Phone: boltgo.String("+14155550199"),
                             },
                     ),
                     Cost: &components.Amount{
@@ -97,10 +108,20 @@ func main() {
         PaymentMethod: components.CreatePaymentMethodInputPaymentMethodCreditCardInput(
                 components.PaymentMethodCreditCardInput{
                     DotTag: components.DotTagCreditCard,
-                    BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
-                            components.AddressReferenceID{
-                                DotTag: components.AddressReferenceIDTagID,
-                                ID: "D4g3h5tBuVYK9",
+                    BillingAddress: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+                            components.AddressReferenceExplicitInput{
+                                DotTag: components.AddressReferenceExplicitTagExplicit,
+                                FirstName: "Alice",
+                                LastName: "Baker",
+                                Company: boltgo.String("ACME Corporation"),
+                                StreetAddress1: "535 Mission St, Ste 1401",
+                                StreetAddress2: boltgo.String("c/o Shipping Department"),
+                                Locality: "San Francisco",
+                                PostalCode: "94105",
+                                Region: boltgo.String("CA"),
+                                CountryCode: components.CountryCodeUs,
+                                Email: boltgo.String("alice@example.com"),
+                                Phone: boltgo.String("+14155550199"),
                             },
                     ),
                     Network: components.CreditCardNetworkVisa,
@@ -133,14 +154,17 @@ func main() {
 | `guestPaymentInitializeRequest`                                                                                                                                                                                     | [components.GuestPaymentInitializeRequest](../../models/components/guestpaymentinitializerequest.md)                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |
 | `opts`                                                                                                                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                  | The options for this request.                                                                                                                                                                                       |
 
-
 ### Response
 
 **[*operations.GuestPaymentsInitializeResponse](../../models/operations/guestpaymentsinitializeresponse.md), error**
+
+### Errors
+
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | sdkerrors.GuestPaymentsInitializeResponseBody | 4XX                                           | application/json                              |
 | sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
+
 
 ## PerformAction
 
@@ -154,7 +178,6 @@ package main
 import(
 	boltgo "github.com/BoltApp/bolt-go"
 	"github.com/BoltApp/bolt-go/models/operations"
-	"os"
 	"github.com/BoltApp/bolt-go/models/components"
 	"context"
 	"log"
@@ -163,7 +186,7 @@ import(
 func main() {
     s := boltgo.New()
     security := operations.GuestPaymentsActionSecurity{
-            APIKey: os.Getenv("API_KEY"),
+            APIKey: "<YOUR_API_KEY_HERE>",
         }
 
     var id string = "iKv7t5bgt1gg"
@@ -199,10 +222,12 @@ func main() {
 | `paymentActionRequest`                                                                                                                                                                                              | [components.PaymentActionRequest](../../models/components/paymentactionrequest.md)                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                  | N/A                                                                                                                                                                                                                 |                                                                                                                                                                                                                     |
 | `opts`                                                                                                                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                  | The options for this request.                                                                                                                                                                                       |                                                                                                                                                                                                                     |
 
-
 ### Response
 
 **[*operations.GuestPaymentsActionResponse](../../models/operations/guestpaymentsactionresponse.md), error**
+
+### Errors
+
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | sdkerrors.GuestPaymentsActionResponseBody | 4XX                                       | application/json                          |
