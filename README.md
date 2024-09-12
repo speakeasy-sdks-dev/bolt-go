@@ -360,7 +360,7 @@ func main() {
 			DisplayID:        boltgo.String("215614191"),
 			Shipments: []components.CartShipment{
 				components.CartShipment{
-					Address: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+					Address: boltgo.Pointer(components.CreateAddressReferenceInputAddressReferenceExplicitInput(
 						components.AddressReferenceExplicitInput{
 							DotTag:         components.AddressReferenceExplicitTagExplicit,
 							FirstName:      "Alice",
@@ -375,7 +375,7 @@ func main() {
 							Email:          boltgo.String("alice@example.com"),
 							Phone:          boltgo.String("+14155550199"),
 						},
-					),
+					)),
 					Cost: &components.Amount{
 						Currency: components.CurrencyUsd,
 						Units:    10000,

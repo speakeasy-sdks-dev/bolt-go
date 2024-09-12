@@ -14,7 +14,7 @@ management:
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.7
+    core: 3.5.8
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.1
     errorUnions: 0.1.0
