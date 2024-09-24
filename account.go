@@ -34,6 +34,7 @@ func (s *Account) GetDetails(ctx context.Context, xPublishableKey string, xMerch
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountGet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -250,6 +251,7 @@ func (s *Account) AddAddress(ctx context.Context, xPublishableKey string, xMerch
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountAddressCreate",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -473,6 +475,7 @@ func (s *Account) UpdateAddress(ctx context.Context, id string, xPublishableKey 
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountAddressEdit",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -697,6 +700,7 @@ func (s *Account) DeleteAddress(ctx context.Context, id string, xPublishableKey 
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountAddressDelete",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -894,6 +898,7 @@ func (s *Account) AddPaymentMethod(ctx context.Context, xPublishableKey string, 
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountAddPaymentMethod",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -1117,6 +1122,7 @@ func (s *Account) DeletePaymentMethod(ctx context.Context, id string, xPublishab
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "accountPaymentMethodDelete",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

@@ -41,12 +41,12 @@ func main() {
             DisplayID: boltgo.String("215614191"),
             Shipments: []components.CartShipment{
                 components.CartShipment{
-                    Address: components.CreateAddressReferenceInputAddressReferenceID(
-                            components.AddressReferenceID{
-                                DotTag: components.AddressReferenceIDTagID,
-                                ID: "D4g3h5tBuVYK9",
-                            },
-                    ),
+                    Address: boltgo.Pointer(components.CreateAddressReferenceInputAddressReferenceID(
+                        components.AddressReferenceID{
+                            DotTag: components.AddressReferenceIDTagID,
+                            ID: "D4g3h5tBuVYK9",
+                        },
+                    )),
                     Cost: &components.Amount{
                         Currency: components.CurrencyUsd,
                         Units: 10000,
@@ -88,10 +88,10 @@ func main() {
             },
         },
         PaymentMethod: components.CreatePaymentMethodExtendedPaymentMethodReference(
-                components.PaymentMethodReference{
-                    DotTag: components.PaymentMethodReferenceTagID,
-                    ID: "X5h6j8uLpVGK",
-                },
+            components.PaymentMethodReference{
+                DotTag: components.PaymentMethodReferenceTagID,
+                ID: "X5h6j8uLpVGK",
+            },
         ),
     })
     if err != nil {

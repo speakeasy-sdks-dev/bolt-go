@@ -36,6 +36,7 @@ func (s *OAuth) GetToken(ctx context.Context, xMerchantClientID string, tokenReq
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "oauthGetToken",
+		OAuth2Scopes:   []string{},
 		SecuritySource: nil,
 	}
 
