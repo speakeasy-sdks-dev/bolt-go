@@ -33,6 +33,7 @@ func (s *LoggedIn) Initialize(ctx context.Context, xPublishableKey string, xMerc
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "paymentsInitialize",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 
@@ -256,6 +257,7 @@ func (s *LoggedIn) PerformAction(ctx context.Context, id string, xPublishableKey
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "paymentsAction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: s.sdkConfiguration.Security,
 	}
 

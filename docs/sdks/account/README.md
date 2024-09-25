@@ -292,20 +292,20 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Account.AddPaymentMethod(ctx, "<value>", "<value>", components.CreatePaymentMethodInputPaymentMethodCreditCardInput(
-            components.PaymentMethodCreditCardInput{
-                DotTag: components.DotTagCreditCard,
-                BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
-                        components.AddressReferenceID{
-                            DotTag: components.AddressReferenceIDTagID,
-                            ID: "D4g3h5tBuVYK9",
-                        },
-                ),
-                Network: components.CreditCardNetworkVisa,
-                Bin: "411111",
-                Last4: "1004",
-                Expiration: "2025-03",
-                Token: "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0",
-            },
+        components.PaymentMethodCreditCardInput{
+            DotTag: components.DotTagCreditCard,
+            BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
+                components.AddressReferenceID{
+                    DotTag: components.AddressReferenceIDTagID,
+                    ID: "D4g3h5tBuVYK9",
+                },
+            ),
+            Network: components.CreditCardNetworkVisa,
+            Bin: "411111",
+            Last4: "1004",
+            Expiration: "2025-03",
+            Token: "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0",
+        },
     ))
     if err != nil {
         log.Fatal(err)

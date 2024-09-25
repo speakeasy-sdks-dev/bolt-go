@@ -74,6 +74,9 @@ func main() {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
 ### [Account](docs/sdks/account/README.md)
 
 * [GetDetails](docs/sdks/account/README.md#getdetails) - Retrieve account details
@@ -84,29 +87,34 @@ func main() {
 * [DeletePaymentMethod](docs/sdks/account/README.md#deletepaymentmethod) - Delete an existing payment method
 
 
-### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+### [OAuth](docs/sdks/oauth/README.md)
 
-* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
-* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
-
-### [Payments.Guest](docs/sdks/guest/README.md)
-
-* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
-* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
 
 ### [Orders](docs/sdks/orders/README.md)
 
 * [OrdersCreate](docs/sdks/orders/README.md#orderscreate) - Create an order that was prepared outside the Bolt ecosystem.
 
-### [OAuth](docs/sdks/oauth/README.md)
+### [Payments](docs/sdks/payments/README.md)
 
-* [GetToken](docs/sdks/oauth/README.md#gettoken) - Get OAuth token
+
+#### [Payments.Guest](docs/sdks/guest/README.md)
+
+* [Initialize](docs/sdks/guest/README.md#initialize) - Initialize a Bolt payment for guest shoppers
+* [PerformAction](docs/sdks/guest/README.md#performaction) - Finalize a pending guest payment
+
+#### [Payments.LoggedIn](docs/sdks/loggedin/README.md)
+
+* [Initialize](docs/sdks/loggedin/README.md#initialize) - Initialize a Bolt payment for logged in shoppers
+* [PerformAction](docs/sdks/loggedin/README.md#performaction) - Finalize a pending payment
 
 ### [Testing](docs/sdks/testing/README.md)
 
 * [CreateAccount](docs/sdks/testing/README.md#createaccount) - Create a test account
 * [TestingAccountPhoneGet](docs/sdks/testing/README.md#testingaccountphoneget) - Get a random phone number
 * [GetCreditCard](docs/sdks/testing/README.md#getcreditcard) - Retrieve a tokenized test credit card
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -352,7 +360,7 @@ func main() {
 			DisplayID:        boltgo.String("215614191"),
 			Shipments: []components.CartShipment{
 				components.CartShipment{
-					Address: components.CreateAddressReferenceInputAddressReferenceExplicitInput(
+					Address: boltgo.Pointer(components.CreateAddressReferenceInputAddressReferenceExplicitInput(
 						components.AddressReferenceExplicitInput{
 							DotTag:         components.AddressReferenceExplicitTagExplicit,
 							FirstName:      "Alice",
@@ -367,7 +375,7 @@ func main() {
 							Email:          boltgo.String("alice@example.com"),
 							Phone:          boltgo.String("+14155550199"),
 						},
-					),
+					)),
 					Cost: &components.Amount{
 						Currency: components.CurrencyUsd,
 						Units:    10000,
