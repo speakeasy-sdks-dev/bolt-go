@@ -33,6 +33,7 @@ func (s *Guest) Initialize(ctx context.Context, security operations.GuestPayment
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "guestPaymentsInitialize",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 
@@ -256,6 +257,7 @@ func (s *Guest) PerformAction(ctx context.Context, security operations.GuestPaym
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "guestPaymentsAction",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 

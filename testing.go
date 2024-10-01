@@ -34,6 +34,7 @@ func (s *Testing) CreateAccount(ctx context.Context, security operations.Testing
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "testingAccountCreate",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 
@@ -256,6 +257,7 @@ func (s *Testing) TestingAccountPhoneGet(ctx context.Context, security operation
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "testingAccountPhoneGet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 
@@ -471,6 +473,7 @@ func (s *Testing) GetCreditCard(ctx context.Context, request operations.TestingC
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "testingCreditCardGet",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 

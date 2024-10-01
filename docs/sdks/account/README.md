@@ -64,11 +64,10 @@ func main() {
 
 ### Errors
 
-| Error Object                     | Status Code                      | Content Type                     |
+| Error Type                       | Status Code                      | Content Type                     |
 | -------------------------------- | -------------------------------- | -------------------------------- |
 | sdkerrors.AccountGetResponseBody | 4XX                              | application/json                 |
-| sdkerrors.SDKError               | 4xx-5xx                          | */*                              |
-
+| sdkerrors.SDKError               | 5XX                              | \*/\*                            |
 
 ## AddAddress
 
@@ -133,11 +132,10 @@ func main() {
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | sdkerrors.AccountAddressCreateResponseBody | 4XX                                        | application/json                           |
-| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
-
+| sdkerrors.SDKError                         | 5XX                                        | \*/\*                                      |
 
 ## UpdateAddress
 
@@ -203,11 +201,10 @@ func main() {
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | sdkerrors.AccountAddressEditResponseBody | 4XX                                      | application/json                         |
-| sdkerrors.SDKError                       | 4xx-5xx                                  | */*                                      |
-
+| sdkerrors.SDKError                       | 5XX                                      | \*/\*                                    |
 
 ## DeleteAddress
 
@@ -260,11 +257,10 @@ func main() {
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | sdkerrors.AccountAddressDeleteResponseBody | 4XX                                        | application/json                           |
-| sdkerrors.SDKError                         | 4xx-5xx                                    | */*                                        |
-
+| sdkerrors.SDKError                         | 5XX                                        | \*/\*                                      |
 
 ## AddPaymentMethod
 
@@ -292,20 +288,20 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Account.AddPaymentMethod(ctx, "<value>", "<value>", components.CreatePaymentMethodInputPaymentMethodCreditCardInput(
-            components.PaymentMethodCreditCardInput{
-                DotTag: components.DotTagCreditCard,
-                BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
-                        components.AddressReferenceID{
-                            DotTag: components.AddressReferenceIDTagID,
-                            ID: "D4g3h5tBuVYK9",
-                        },
-                ),
-                Network: components.CreditCardNetworkVisa,
-                Bin: "411111",
-                Last4: "1004",
-                Expiration: "2025-03",
-                Token: "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0",
-            },
+        components.PaymentMethodCreditCardInput{
+            DotTag: components.DotTagCreditCard,
+            BillingAddress: components.CreateAddressReferenceInputAddressReferenceID(
+                components.AddressReferenceID{
+                    DotTag: components.AddressReferenceIDTagID,
+                    ID: "D4g3h5tBuVYK9",
+                },
+            ),
+            Network: components.CreditCardNetworkVisa,
+            Bin: "411111",
+            Last4: "1004",
+            Expiration: "2025-03",
+            Token: "a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0",
+        },
     ))
     if err != nil {
         log.Fatal(err)
@@ -332,11 +328,10 @@ func main() {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
+| Error Type                                    | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | sdkerrors.AccountAddPaymentMethodResponseBody | 4XX                                           | application/json                              |
-| sdkerrors.SDKError                            | 4xx-5xx                                       | */*                                           |
-
+| sdkerrors.SDKError                            | 5XX                                           | \*/\*                                         |
 
 ## DeletePaymentMethod
 
@@ -389,7 +384,7 @@ func main() {
 
 ### Errors
 
-| Error Object                                     | Status Code                                      | Content Type                                     |
+| Error Type                                       | Status Code                                      | Content Type                                     |
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | sdkerrors.AccountPaymentMethodDeleteResponseBody | 4XX                                              | application/json                                 |
-| sdkerrors.SDKError                               | 4xx-5xx                                          | */*                                              |
+| sdkerrors.SDKError                               | 5XX                                              | \*/\*                                            |

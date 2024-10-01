@@ -34,6 +34,7 @@ func (s *Orders) OrdersCreate(ctx context.Context, security operations.OrdersCre
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "ordersCreate",
+		OAuth2Scopes:   []string{},
 		SecuritySource: utils.AsSecuritySource(security),
 	}
 

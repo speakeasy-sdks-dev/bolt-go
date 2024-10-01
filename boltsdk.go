@@ -42,6 +42,9 @@ func Float32(f float32) *float32 { return &f }
 // Float64 provides a helper function to return a pointer to a float64
 func Float64(f float64) *float64 { return &f }
 
+// Pointer provides a helper function to return a pointer to a type
+func Pointer[T any](v T) *T { return &v }
+
 type sdkConfiguration struct {
 	Client            HTTPClient
 	Security          func(context.Context) (interface{}, error)
@@ -196,8 +199,8 @@ func New(opts ...SDKOption) *BoltSDK {
 			Language:          "go",
 			OpenAPIDocVersion: "3.2.1",
 			SDKVersion:        "1.4.0",
-			GenVersion:        "2.411.9",
-			UserAgent:         "speakeasy-sdk/go 1.4.0 2.411.9 3.2.1 github.com/BoltApp/bolt-go",
+			GenVersion:        "2.428.5",
+			UserAgent:         "speakeasy-sdk/go 1.4.0 2.428.5 3.2.1 github.com/BoltApp/bolt-go",
 			ServerDefaults: []map[string]string{
 				{
 					"environment": "api-sandbox",
